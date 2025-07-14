@@ -1,7 +1,7 @@
 fn main() {
-    let s = String::from("hello");
+    let mut s = String::from("hello");
 
-    change(&s);
+    change(&mut s);
 }
 
 fn change(some_string: &mut String) {
