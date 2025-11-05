@@ -20,6 +20,7 @@ fn main() {
     // Fields can be specified in any order
     let user3 = User {
         email: String::from("another@example.com"),
+        username: String::from("anotherusername"),
         ..user1
     };
 }
