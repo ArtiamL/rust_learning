@@ -1,1 +1,45 @@
-*/target
+# Generated .gitignore for Rust/Cargo projects
+
+# Cargo-specific files
+/target/
+**/*.rs.bk
+
+# Executables
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.rlib
+*.rmeta
+*.pdb
+
+# Backup files
+*.bak
+*.swp
+*.tmp
+*~
+
+# IDE/editor files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Logs
+*.log
+
+# Rust/Cargo package files
+Cargo.lock
+
+# Optional: build artifacts from documentation
+/target/doc/
+
+# Optional: test output
+/target/debug/deps/
