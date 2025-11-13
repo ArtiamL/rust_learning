@@ -1,7 +1,7 @@
 # Generated .gitignore for Rust/Cargo projects
 
 # Cargo-specific files
-/target/
+**/target/
 **/*.rs.bk
 
 # Executables
