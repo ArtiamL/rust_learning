@@ -39,7 +39,7 @@ Thumbs.db
 Cargo.lock
 
 # Optional: build artifacts from documentation
-/target/doc/
+**/target/doc/
 
 # Optional: test output
-/target/debug/deps/
+**/target/debug/deps/
