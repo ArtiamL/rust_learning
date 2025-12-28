@@ -14,18 +14,25 @@ mod front_of_house {
     }
 }
 
-pub fn eat_at_restaurant() {
-    // Order a breakfast in the summer with Rye toast.
-    let mut meal = back_of_house::Breakfast::summer("Rye");
-    // Change our mind about what bread we'd like.
-    meal.toast = String::from("Wheat");
-    println!("I'd like {} toast please", meal.toast);
+mod customer {
+    use super::back_of_house;
+    use crate::front_of_house::hosting;
 
-    // The next line won't compile if uncommented as seasonal_fruit is private
-    // meal.seasonal_fruit = String::from("blueberries");
+    pub fn eat_at_restaurant() {
+        // Order a breakfast in the summer with Rye toast.
+        let mut meal = back_of_house::Breakfast::summer("Rye");
+        // Change our mind about what bread we'd like.
+        meal.toast = String::from("Wheat");
+        println!("I'd like {} toast please", meal.toast);
 
-    let order1 = back_of_house::Appetizer::Soup;
-    let order2 = back_of_house::Appetizer::Salad;
+        // The next line won't compile if uncommented as seasonal_fruit is private
+        // meal.seasonal_fruit = String::from("blueberries");
+
+        let order1 = back_of_house::Appetizer::Soup;
+        let order2 = back_of_house::Appetizer::Salad;
+
+        hosting::add_to_waitlist();
+    }
 }
 
 fn deliver_order() {}
