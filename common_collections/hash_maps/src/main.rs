@@ -22,11 +22,22 @@ fn main() {
     map.insert(field_name, field_value);
 
     // HashMap.entry() allows for checking if key exists before inserting val
-    let mut scores_new: HashMap<String, i32> = HashMap::new();
+    let mut _scores_new: HashMap<String, i32> = HashMap::new();
     scores.insert(String::from("Blue"), 10);
 
     scores.entry(String::from("Yellow")).or_insert(50);
     scores.entry(String::from("Blue")).or_insert(50);
 
     println!("{scores:?}");
+
+    // Updating val based on old val
+    let text = "hello world wonderful world";
+
+    let mut map = HashMap::new();
+    for word in text.split_whitespace() {
+        let count = map.entry(word).or_insert(0);
+        *count += 1;
+    }
+
+    println!("{map:?}");
 }
