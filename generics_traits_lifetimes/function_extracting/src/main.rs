@@ -10,9 +10,9 @@ fn largest<T: std::cmp::PartialOrd>(list: &[T]) -> &T {
     largest
 }
 
-struct Point<T> {
+struct Point<T, U> {
     x: T,
-    y: T,
+    y: U,
 }
 
 fn main() {
@@ -26,6 +26,7 @@ fn main() {
     let result = largest(&char_list);
     println!("The largest char is {result}");
 
-    let integer = Point { x: 5, y: 10 };
-    let float = Point { x: 1.0, y: 4.0 };
+    let both_integer = Point { x: 5, y: 10 };
+    let both_float = Point { x: 1.0, y: 4.0 };
+    let integer_and_float = Point { x: 5, y: 4.0 };
 }
