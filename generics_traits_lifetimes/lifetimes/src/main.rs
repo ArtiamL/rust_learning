@@ -6,7 +6,8 @@ fn main() {
     println!("The longest string is {result}");
 }
 
-// Won't compile as borrow checker can't infer lifetimes of either x or y
-fn longest(x: &str, y: &str) -> &str {
+// Generic Lifetime ensures the returned values have a concrete lifetime of the smallest lifetime
+// of x and y
+fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     if x.len() > y.len() { x } else { y }
 }
