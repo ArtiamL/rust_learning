@@ -1,3 +1,5 @@
+use std::{thread, time::Duration};
+
 #[derive(Debug, PartialEq, Copy, Clone)]
 enum ShirtColor {
     Red,
@@ -50,4 +52,45 @@ fn main() {
         "The user with preference {:?} gets {:?}",
         user_pref2, giveaway2
     );
+
+    //Closure examples
+
+    let _expensive_closure = |num: u32| -> u32 {
+        println!("calculating slowly...");
+        thread::sleep(Duration::from_secs(2));
+        num
+    };
+
+    println!("\n\nClosure examples:");
+    let example_closure = |x| x;
+
+    let _s = example_closure(String::from("hello"));
+    // Can't change type as type is inferred to be String from previous line.
+    // let n = example_closure(5);
+
+    //Immutably borrows
+    let list = vec![1, 2, 3];
+    println!("Before defining closure: {list:?}");
+
+    let only_borrows = || println!("From closure: {list:?}");
+
+    println!("Before calling closure: {list:?}");
+    only_borrows();
+    println!("After calling closure: {list:?}");
+
+    //Mutably borrows
+    let mut list2 = vec![1, 2, 3];
+    println!("\nBefore defining closure: {list2:?}");
+    let mut borrows_mutably = || list2.push(7);
+
+    borrows_mutably();
+    println!("After calling closure: {list2:?}");
+
+    //Move keyword
+    let list3 = vec![1, 2, 3];
+    println!("Before defining closure: {list:?}");
+
+    thread::spawn(move || println!("\nFrom thread: {list:?}"))
+        .join()
+        .unwrap();
 }
